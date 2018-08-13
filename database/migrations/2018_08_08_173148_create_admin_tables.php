@@ -52,6 +52,7 @@ class CreateAdminTables extends Migration
         });
 
         Schema::connection($connection)->create(config('admin.database.role_users_table'), function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('role_id');
             $table->integer('user_id');
             $table->index(['role_id', 'user_id']);
